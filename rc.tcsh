@@ -3,7 +3,7 @@
 #
 
 # echo to stderr
-echo "Loaded: Jonah Y-M's .tcshrc file" >&2
+echo "Loaded: Jonah Y-M's .tcshrc file"
 
 umask 066
 set path=(/bin /usr/bin /usr/local/bin /opt/sfw/bin /usr/sfw/bin /usr/ucb /usr/openwin/bin /etc ~/cni/bin .)
