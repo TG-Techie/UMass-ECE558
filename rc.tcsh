@@ -1,6 +1,10 @@
+#!/bin/tcsh
 #
 # .tcshrc
 #
+
+# add carog to the path
+. "$HOME/.cargo/env"
 
 # echo to stderr
 echo "Loaded: Jonah Y-M's .tcshrc file"
