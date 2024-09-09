@@ -2,12 +2,12 @@ $ Simple RC circuit
 .OP
 .OPTION POST
 R1 n1 n2 1K $ Resistance
-C1 n2 0 1uF * Capacitance
-* PieceWise Linear Voltage source
+C1 n2 0 1uF $ Capacitance
+$ PieceWise Linear Voltage source
 V1 n1 0 PWL (0s 0V 2ms 0V 2.001ms 1V 10ms 1V)
-* Transient analysis until 10ms
+$ Transient analysis until 10ms
 .TRAN 1us 10ms
 
-* Measure delay from v(n1) to v(n2)
+$ Measure delay from v(n1) to v(n2)
 .MEASURE TRAN td TRIG=v(n1) VAL=0.5 RISE=1 TARG=v(n2) VAL=0.5 RISE=1
 .END
