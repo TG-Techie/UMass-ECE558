@@ -1,8 +1,7 @@
 * Simple RC circuit
 .OP
 .OPTION POST
-R1 n1 n2 1K $
-* Resistance
+R1 n1 n2 1K $ Resistance
 C1 n2 0 1uF * Capacitance
 * PieceWise Linear Voltage source
 V1 n1 0 PWL (0s 0V 2ms 0V 2.001ms 1V 10ms 1V)
