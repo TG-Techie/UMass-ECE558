@@ -6,8 +6,9 @@
 # add carog to the path
 . "$HOME/.cargo/env"
 
-# dd teh home /bin directory to the path
-export PATH="$HOME/bin:$PATH"
+# add the home /bin directory to the path
+# use the tcsh equivalent of bash's export
+setenv PATH "$HOME/bin:$PATH"
 
 # echo to stderr
 echo "Loaded: Jonah Y-M's .tcshrc file"

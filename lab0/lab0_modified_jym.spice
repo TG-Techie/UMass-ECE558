@@ -1,0 +1,24 @@
+$ Jonah Yolles-Murphy
+$ user/id: jyollesmurph 32484148
+$ date_craeted: 2024-09-09
+
+
+$ Simple RC circuit
+.OP
+.OPTION POST
+R1 n1 n2 1K 
+C1 n2 0 1.148uF $ 1.XYZ uF where XYZ is the last three digits of your student ID
+
+$ PieceWise Linear Voltage source
+V1 n1 0 PWL (0s 0V 2ms 0V 2.001ms 1V 10ms 1V)
+
+$ Transient analysis until 10ms
+.TRAN 1us 10ms
+
+$ Measure delay from v(n1) to v(n2) for 0.1V, 0.5V, and 0.9V
+.MEASURE TRAN td_10p TRIG=v(n1) VAL=0.1 RISE=1 TARG=v(n2) VAL=0.1 RISE=1
+.MEASURE TRAN td_50p TRIG=v(n1) VAL=0.5 RISE=1 TARG=v(n2) VAL=0.5 RISE=1
+.MEASURE TRAN td_90p TRIG=v(n1) VAL=0.9 RISE=1 TARG=v(n2) VAL=0.9 RISE=1
+
+
+.END
