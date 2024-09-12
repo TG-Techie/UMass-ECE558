@@ -1,0 +1,65 @@
+; Lines like this are comments
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; The features used in the example file demonstrate the major		 ;
+; capabilities needed when using .vec files for the course. Make sure to ;
+; read and understand the comments before using. In case of doubts, see	 ;
+; the "Sources and Stimuli" chapter of HSPICE manual where the syntax of ;
+; .vec files is explained in full detail.				 ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Define A and B as single-bit ("1") inputs ("i") ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+radix 11
+io ii
+vname A B
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; trise, tfall, and period of the vectors are set according to params  ;
+; (tris, tfall, tper) from the SPICE netlist that uses this .vec       ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+tunit ps
+trise tris
+tfall tfall
+period tper
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Use idelay to configure inputs to change at a time that is shifted	 ;
+; relative to the start of each period. One application where this would ;
+; be used: if periods of the .vec and the clock signal start at the same ;
+; times, a short path from input to flip-flop can cause a hold time	 ;
+; violation. Delaying the inputs with idelay, so that inputs change	 ;
+; slighty after clock edges, can prevent this.				 ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+idelay 25
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; set the voltage for logic high (1) and low (0). 	        ;
+; vdd_val is a param from the SPICE netlist that uses this .vec ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+vih vdd_val
+vil 0
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; The sequence of input vectors that will be applied to the circuit on ;
+; inputs A and B. One vector is applied in each period.		       ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+00
+01
+11
+10
