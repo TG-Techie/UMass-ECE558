@@ -234,3 +234,4 @@ jyollesmurph@vlsicad:~$tree -fi / | grep 'cds.lib'
 /opt/synopsys/hspice/hspice/T-2022.06-3/hspice/demo/hspice/spiceADE_integ/Optimization_Demo_61/cds.lib
 /opt/synopsys/hspice/hspice/T-2022.06-3/hspice/demo/hspice/spiceADE_integ/PLL_Demo_61/cds.lib
 /opt/synopsys/hspice/hspice/T-2022.06-3/hspice/demo/hspice/spiceADE_integ/RfMeas_Demo_61/cds.lib
+ 
