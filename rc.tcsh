@@ -3,8 +3,8 @@
 # .tcshrc
 #
 
-# add carog to the path
-. "$HOME/.cargo/env"
+# # add carog to the path
+# . "$HOME/.cargo/env"
 
 # add the home /bin directory to the path
 # use the tcsh equivalent of bash's export
